@@ -1,4 +1,4 @@
 <?php
 return [
-  'label' => '用户'
+  'label' => '用户管理'
 ];

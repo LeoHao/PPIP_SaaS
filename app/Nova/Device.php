@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\DeviceRestart;
+use App\Nova\Actions\Restart;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
@@ -47,6 +47,48 @@ class Device extends Resource
     ];
 
     /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->where('id', 2);
+    }
+
+
+    /**
+     * 为资源构建可关联过滤。
+     *
+     * 这个查询条件决定了哪些实例可以在关联选项中被选择。
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function relatableQuery(NovaRequest $request, $query)
+    {
+        return $query->where('id', $request->user()->id);
+    }
+
+    /**
+     * Build a "relatable" query for the given resource.
+     *
+     * This query determines which instances of the model may be attached to other resources.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Laravel\Nova\Fields\Field  $field
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function relatableTags(NovaRequest $request, $query)
+    {
+        return $query->where('status', 1);
+    }
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param \Illuminate\Http\Request $request
@@ -61,11 +103,7 @@ class Device extends Resource
             Select::make(__('Status'), 'status')
                 ->default(-1)
                 ->displayUsingLabels()
-                ->options([
-                        '-1' => '离线',
-                        '0' => '重启中',
-                        '1' => '在线',
-                    ]),
+                ->options(['-1' => '离线', '0' => '重启中', '1' => '在线']),
         ];
     }
 
@@ -115,7 +153,9 @@ class Device extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Actions\DeviceRestart)->showOnTableRow(),
+            (new Actions\Restart)->showOnTableRow(),
+            (new Actions\Dedicated)->showOnTableRow(),
+            (new Actions\SiteSpeedUp())->showOnTableRow(),
         ];
     }
 }

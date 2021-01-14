@@ -1,5 +1,5 @@
 {
-    "Actions": "动作",
+    "Actions": "操作",
     "Details": "详细",
     "If you did not request a password reset, no further action is required.": "如果您没有请求密码重置，则不需要进一步操作。",
     "Reset Password": "重置密码",
@@ -356,8 +356,6 @@
     "Action Target": "目标",
     "Action Status": "状态",
     "Action Happened At": "发生在",
-
-
     "resource": "resource",
     "resources": "resources",
     "Choose date": "Choose date",

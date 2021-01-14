@@ -1,4 +1,4 @@
 <?php
 return [
-  'label' => '设备',
+  'label' => '设备管理',
 ];
