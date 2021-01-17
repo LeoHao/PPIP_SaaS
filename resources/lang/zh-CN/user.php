@@ -1,4 +1,9 @@
 <?php
 return [
-  'label' => '用户管理'
+    'label'    => '账号管理',
+    'phone'    => '手机号',
+    'name'     => '用户名',
+    'email'     => '邮箱',
+    'password' => '密码',
+    'group'    => '组',
 ];
