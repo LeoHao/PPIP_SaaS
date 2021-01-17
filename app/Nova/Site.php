@@ -9,6 +9,10 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Site extends Resource
 {
+    public static $group = 'Setting';
+
+    public static $priority = 5;
+
     /**
      * The model the resource corresponds to.
      *
