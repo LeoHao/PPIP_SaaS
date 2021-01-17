@@ -28,4 +28,10 @@ class Device extends Model
      * @var array
      */
     protected $casts = [];
+
+
+    public function groups()
+    {
+        return $this->hasOne('App\Group', 'id', 'group_id');
+    }
 }
