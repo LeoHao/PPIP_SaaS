@@ -17,7 +17,7 @@ class CreatePluginsTable extends Migration
             $table->id();
             $table->string('label');
             $table->string('group')->nullable();
-            $table->string('model');
+            $table->string('model')->nullable();
             $table->timestamps();
 
             $table->charset = 'utf8';

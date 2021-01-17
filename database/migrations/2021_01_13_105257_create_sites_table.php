@@ -15,9 +15,9 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
-            $table->string('ip',15);
-            $table->string('port',5);
-            $table->string('label',20);
+            $table->string('ip');
+            $table->string('port');
+            $table->string('label');
             $table->string('group')->nullable();
             $table->timestamps();
         });

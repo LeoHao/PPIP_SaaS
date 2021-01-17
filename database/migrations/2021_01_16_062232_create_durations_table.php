@@ -15,7 +15,7 @@ class CreateDurationsTable extends Migration
     {
         Schema::create('durations', function (Blueprint $table) {
             $table->id();
-            $table->string('label',20)->comment('时长描述:1个月  2个月');
+            $table->string('label')->comment('时长描述:1个月  2个月');
             $table->string('group')->nullable();
             $table->timestamp('use_time');
             $table->timestamps();
