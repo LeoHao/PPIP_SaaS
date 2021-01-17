@@ -57,8 +57,8 @@ class Duration extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('site.group'), 'group')->sortable(),
-            Text::make(__('site.label'), 'label')->sortable(),
+            Text::make(__('duration.group'), 'group')->sortable(),
+            Text::make(__('duration.label'), 'label')->sortable(),
         ];
     }
 
