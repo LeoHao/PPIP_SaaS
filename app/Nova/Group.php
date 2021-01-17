@@ -4,10 +4,15 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Group extends Resource
 {
+    public static $group = 'Setting';
+
+    public static $priority = 1;
+
     /**
      * The model the resource corresponds to.
      *
@@ -25,6 +30,15 @@ class Group extends Resource
         return __('group.label');
     }
 
+    /**
+     * Get the value that should be displayed to represent the resource.
+     *
+     * @return string
+     */
+    public function title()
+    {
+        return $this->company_name;
+    }
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
@@ -51,6 +65,8 @@ class Group extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('company_name'), 'company_name')->sortable(),
+            Text::make(__('description'), 'description')->sortable(),
         ];
     }
 
