@@ -9,6 +9,10 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Dedicated extends Resource
 {
+    public static $group = 'Setting';
+
+    public static $priority = 3;
+
     /**
      * The model the resource corresponds to.
      *

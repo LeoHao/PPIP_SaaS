@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDedicatedTable extends Migration
+class CreateDedicatedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,10 @@ class CreateDedicatedTable extends Migration
     {
         Schema::create('dedicateds', function (Blueprint $table) {
             $table->id();
-            $table->string('ip',15);
-            $table->string('port',5);
-            $table->string('label',20);
-            $table->string('group',20);
+            $table->string('ip');
+            $table->string('port');
+            $table->string('label');
+            $table->string('group')->nullable();
             $table->timestamps();
         });
     }

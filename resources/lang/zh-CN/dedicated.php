@@ -5,5 +5,7 @@ return [
     'group'  => '节点组',
     'ip'    => 'ip地址',
     'port'    => '端口',
-    'choose'    => '选择节点',
+    'type'    => '功能类型',
+    'chooseNode'    => '选择节点',
+    'chooseTime'    => '选择时长',
 ];
