@@ -4,10 +4,15 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Plugin extends Resource
 {
+    public static $group = 'Setting';
+
+    public static $priority = 2;
+
     /**
      * The model the resource corresponds to.
      *
@@ -15,7 +20,6 @@ class Plugin extends Resource
      */
     public static $model = \App\Plugin::class;
 
-    public static $group = 'Admin';
     /**
      * Get the displayable label of the resource.
      *
@@ -52,6 +56,8 @@ class Plugin extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Text::make(__('plugin.group'), 'group')->sortable(),
+            Text::make(__('plugin.name'), 'label')->sortable(),
         ];
     }
 

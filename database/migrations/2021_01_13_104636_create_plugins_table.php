@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePluginTable extends Migration
+class CreatePluginsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,9 @@ class CreatePluginTable extends Migration
     {
         Schema::create('plugins', function (Blueprint $table) {
             $table->id();
-            $table->string('name',20);
-            $table->string('controller',50);
+            $table->string('label');
+            $table->string('group')->nullable();
+            $table->string('model');
             $table->timestamps();
 
             $table->charset = 'utf8';
