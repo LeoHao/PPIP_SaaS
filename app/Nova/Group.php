@@ -65,7 +65,7 @@ class Group extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('group.label'), 'label')->sortable(),
+            Text::make(__('group.name'), 'label')->sortable(),
             Text::make(__('group.des'), 'description')->sortable(),
         ];
     }
