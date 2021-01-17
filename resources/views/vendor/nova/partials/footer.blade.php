@@ -4,5 +4,5 @@
     &copy; {{ date('Y') }} PPIP
     <span class="px-1">&middot;</span>
 {{--    v{{ \Laravel\Nova\Nova::version() }}--}}
-    version-Beta-0.1
+    Version-Beta-0.1
 </p>
